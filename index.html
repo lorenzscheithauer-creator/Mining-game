@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#0b1220" />
+    <meta
+      name="description"
+      content="Deep Core Miner ist eine mobile Mining-Simulation mit Upgrades, Aufträgen und Expeditionen."
+    />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Deep Core Miner</title>
+  </head>
+  <body>
+    <div class="ambient-orb orb-one"></div>
+    <div class="ambient-orb orb-two"></div>
+    <main class="app-shell" aria-label="Deep Core Miner Spieloberfläche">
+      <section class="hero-panel">
+        <div>
+          <p class="eyebrow">Mobile Mining Simulation</p>
+          <h1>Deep Core Miner</h1>
+          <p class="intro">
+            Baue deine Crew auf, verbessere Bohrer und verkaufe seltene Erze aus immer tieferen Schichten.
+          </p>
+        </div>
+        <div class="hero-actions">
+          <button id="soundButton" class="sound-toggle" type="button" aria-pressed="true">🔊 Sound sanft</button>
+          <div class="badge" aria-label="Offline spielbar">Play Store Ready</div>
+        </div>
+      </section>
+
+      <section class="captain-card" aria-label="Missionsübersicht">
+        <div class="captain-avatar" aria-hidden="true"></div>
+        <div>
+          <span>Minen-KI</span>
+          <strong id="missionHint">Starte den Bohrer und sammle 50 Erz für den ersten Auftrag.</strong>
+        </div>
+      </section>
+
+      <section class="stats-grid" aria-label="Ressourcen">
+        <article class="stat-card coins">
+          <span>Credits</span>
+          <strong id="credits">0</strong>
+        </article>
+        <article class="stat-card ore">
+          <span>Erz</span>
+          <strong id="ore">0</strong>
+        </article>
+        <article class="stat-card depth">
+          <span>Tiefe</span>
+          <strong id="depth">0 m</strong>
+        </article>
+      </section>
+
+      <section class="mine-stage" aria-label="Mine">
+        <div class="mine-header">
+          <span>Live-Schacht</span>
+          <strong id="comboText">Combo x1</strong>
+        </div>
+        <canvas id="mineCanvas" width="760" height="620" aria-label="Animierte Mine"></canvas>
+        <div class="tap-ripple" id="tapRipple" aria-hidden="true"></div>
+        <div class="mine-hud">
+          <div>
+            <span>Schicht</span>
+            <strong id="layerName">Kupferader</strong>
+          </div>
+          <div>
+            <span>Bohrerhitze</span>
+            <strong id="heat">0%</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="actions-panel" aria-label="Aktionen">
+        <button id="mineButton" class="primary-action game-button" type="button">
+          <span class="button-icon">⛏️</span>
+          <span>Abbauen</span>
+        </button>
+        <button id="sellButton" class="game-button secondary-action" type="button">
+          <span class="button-icon">💰</span>
+          <span>Verkaufen</span>
+        </button>
+        <button id="coolButton" class="game-button cool-action" type="button">
+          <span class="button-icon">❄️</span>
+          <span>Kühlen</span>
+        </button>
+      </section>
+
+      <section class="progress-panel" aria-label="Fortschritt">
+        <div class="progress-copy">
+          <span id="contractTitle">Auftrag: 50 Erz liefern</span>
+          <strong id="contractReward">Belohnung: 120 Credits</strong>
+        </div>
+        <div class="progress-track">
+          <div id="contractProgress" class="progress-fill"></div>
+        </div>
+      </section>
+
+      <section class="shop-grid" aria-label="Upgrades">
+        <article class="upgrade-card" data-upgrade="drill">
+          <div class="upgrade-icon drill"></div>
+          <div>
+            <h2>Bohrer</h2>
+            <p>Mehr Erz pro Schlag und schnellerer Tiefenfortschritt.</p>
+            <strong id="drillLevel">Level 1</strong>
+          </div>
+          <button id="drillButton" class="upgrade-button" type="button">Upgrade</button>
+        </article>
+
+        <article class="upgrade-card" data-upgrade="crew">
+          <div class="upgrade-icon crew"></div>
+          <div>
+            <h2>Crew</h2>
+            <p>Automatischer Abbau, auch wenn du dich um Verkäufe kümmerst.</p>
+            <strong id="crewLevel">Level 0</strong>
+          </div>
+          <button id="crewButton" class="upgrade-button" type="button">Anheuern</button>
+        </article>
+
+        <article class="upgrade-card" data-upgrade="scanner">
+          <div class="upgrade-icon scanner"></div>
+          <div>
+            <h2>Scanner</h2>
+            <p>Findet wertvollere Adern und erhöht Verkaufspreise.</p>
+            <strong id="scannerLevel">Level 0</strong>
+          </div>
+          <button id="scannerButton" class="upgrade-button" type="button">Kalibrieren</button>
+        </article>
+      </section>
+
+      <section class="log-panel" aria-label="Ereignisprotokoll">
+        <h2>Logbuch</h2>
+        <ul id="logList"></ul>
+      </section>
+    </main>
+
+    <script src="src/game.js" defer></script>
+  </body>
+</html>
