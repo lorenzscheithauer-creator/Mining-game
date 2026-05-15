@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Deep Core Miner Icon">
+  <defs>
+    <linearGradient id="bg" x1="70" x2="430" y1="40" y2="470" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#182b49"/>
+      <stop offset="1" stop-color="#060914"/>
+    </linearGradient>
+    <linearGradient id="drill" x1="205" x2="315" y1="102" y2="410" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f8fafc"/>
+      <stop offset=".48" stop-color="#ffc857"/>
+      <stop offset="1" stop-color="#ff8a3d"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+  <path d="M70 326c58-38 108-38 151 0s93 38 151 0 91-38 110 0v94H70z" fill="#0f172a"/>
+  <path d="M112 282c58-28 107-28 148 0s90 28 148 0" fill="none" stroke="#48d8ff" stroke-width="18" stroke-linecap="round" opacity=".55"/>
+  <path d="M218 92h76l34 96-32 174-40 72-40-72-32-174z" fill="url(#drill)"/>
+  <path d="M196 120h120" stroke="#e2e8f0" stroke-width="34" stroke-linecap="round"/>
+  <path d="M222 220l66 38M214 282l80 46" stroke="#fff7d6" stroke-width="15" stroke-linecap="round" opacity=".8"/>
+  <circle cx="138" cy="170" r="24" fill="#5cf2a9"/>
+  <circle cx="384" cy="144" r="18" fill="#ffc857"/>
+  <circle cx="372" cy="368" r="28" fill="#fb7185"/>
+</svg>
