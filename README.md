@@ -28,3 +28,56 @@ python3 -m http.server 4173
 ```
 
 Öffne danach `http://localhost:4173` im Browser.
+
+## Testen
+
+Führe diese schnellen Checks aus, bevor du eine Änderung mergst:
+
+```bash
+node --check src/game.js
+node --check service-worker.js
+python3 -m http.server 4173
+curl -I http://localhost:4173/index.html
+curl -I http://localhost:4173/styles.css
+curl -I http://localhost:4173/src/game.js
+curl -I http://localhost:4173/manifest.webmanifest
+```
+
+Manuell im Browser prüfen:
+
+1. `http://localhost:4173` öffnen.
+2. Mehrfach auf **Abbauen** oder direkt auf die Mine tippen.
+3. Prüfen, ob Erz, Tiefe, Combo, Partikel, Floating-Text und Sound reagieren.
+4. **Erz verkaufen**, **Bohrer kühlen** und alle Upgrade-Buttons testen.
+5. Auf einem schmalen/mobile Viewport prüfen, ob die untere Aktionsleiste sticky bleibt und Buttons gut bedienbar sind.
+
+## Mergekonflikte lösen
+
+Aktuell enthält das Repository keine Konfliktmarker. Wenn Git trotzdem einen Mergekonflikt meldet, gehe so vor:
+
+```bash
+git status --short
+rg -n "(<){7}|(=){7}|(>){7}" .
+```
+
+Dann jede betroffene Datei öffnen und die Konfliktbereiche bereinigen:
+
+```text
+[Startmarker HEAD]
+Version aus deinem Branch
+[Trennmarker]
+Version aus dem anderen Branch
+[Endmarker branch-name]
+```
+
+Entscheide pro Block, welche Version bleiben soll, oder kombiniere beide Änderungen. Danach alle Konfliktmarker entfernen und erneut prüfen:
+
+```bash
+rg -n "(<){7}|(=){7}|(>){7}" .
+node --check src/game.js
+node --check service-worker.js
+git add <datei>
+git commit
+```
+
+Wenn der Konflikt nur in generierten oder Cache-Dateien steckt, lieber die echte Quelle bearbeiten und keine kaputten Marker committen.
