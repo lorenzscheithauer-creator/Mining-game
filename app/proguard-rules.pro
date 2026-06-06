@@ -1,0 +1,6 @@
+-keep class com.tom_roush.pdfbox.** { *; }
+-keep class org.bouncycastle.** { *; }
+-keep class com.android.billingclient.** { *; }
+-keep class com.google.android.gms.ads.** { *; }
+-keep class com.google.android.ump.** { *; }
+-dontwarn org.bouncycastle.**
